@@ -76,30 +76,30 @@ dns:
 
   direct-nameserver-follow-policy: true
 
-proxies:
+pproxies:
   - name: "hcca"
-    输入: ss
+    type: ss
     server: 152.69.230.173
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: "hccb"
-    输入: ss
+    type: ss
     server: 152.67.199.69
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: "ccarm"
-    输入: ss
+    type: ss
     server: 146.56.96.88
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: sga
-    输入: trojan
+    type: trojan
     server: 138.2.92.207
     port: 443
     password: hcj9180
@@ -110,28 +110,28 @@ proxies:
       - http/1.1
     skip-cert-verify: false
   - name: sgb
-    输入: hysteria2
+    type: hysteria2
     server: sgb.chinatw.eu.org
     port: "444"
     ports: 20000-50000
     password: zjs9180.zmz203307
     sni: sgb.chinatw.eu.org
   - name: "sgarm"
-    输入: ss
+    type: ss
     server: 134.185.88.159
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: "jparm"
-    输入: ss
+    type: ss
     server: 131.186.44.69
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: "dmit"
-    输入: trojan
+    type: trojan
     server: dmit.mdfg2288.gq
     port: 443
     password: hcj9180
@@ -142,7 +142,7 @@ proxies:
       - http/1.1
     skip-cert-verify: false
   - name: "bwg"
-    输入: trojan
+    type: trojan
     server: bwg.mdfg2288.gq
     port: 443
     password: hcj9180
@@ -181,9 +181,10 @@ proxies:
     password: "gmbzhhc163"
     udp: true
 
+
 proxy-groups:
   - name: 节点选择
-    type: select
+    输入: select
     proxies:
       - sga
       - sgb
@@ -201,7 +202,7 @@ proxy-groups:
       - DIRECT
 
   - name: 国外服务
-    type: select
+    输入: select
     proxies:
       - sga
       - sgb
@@ -219,7 +220,7 @@ proxy-groups:
       - DIRECT
 
   - name: AI服务
-    type: select
+    输入: select
     proxies:
       - sga
       - sgb
@@ -237,7 +238,7 @@ proxy-groups:
       - DIRECT
 
   - name: 流媒体
-    type: select
+    输入: select
     proxies:
       - sga
       - sgb
