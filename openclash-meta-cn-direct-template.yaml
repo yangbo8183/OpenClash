@@ -78,28 +78,28 @@ dns:
 
 proxies:
   - name: "hcca"
-    type: ss
+    输入: ss
     server: 152.69.230.173
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: "hccb"
-    type: ss
+    输入: ss
     server: 152.67.199.69
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: "ccarm"
-    type: ss
+    输入: ss
     server: 146.56.96.88
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: sga
-    type: trojan
+    输入: trojan
     server: 138.2.92.207
     port: 443
     password: hcj9180
@@ -110,28 +110,28 @@ proxies:
       - http/1.1
     skip-cert-verify: false
   - name: sgb
-    type: hysteria2
+    输入: hysteria2
     server: sgb.chinatw.eu.org
     port: "444"
     ports: 20000-50000
     password: zjs9180.zmz203307
     sni: sgb.chinatw.eu.org
   - name: "sgarm"
-    type: ss
+    输入: ss
     server: 134.185.88.159
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: "jparm"
-    type: ss
+    输入: ss
     server: 131.186.44.69
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: "dmit"
-    type: trojan
+    输入: trojan
     server: dmit.mdfg2288.gq
     port: 443
     password: hcj9180
@@ -142,7 +142,7 @@ proxies:
       - http/1.1
     skip-cert-verify: false
   - name: "bwg"
-    type: trojan
+    输入: trojan
     server: bwg.mdfg2288.gq
     port: 443
     password: hcj9180
@@ -153,21 +153,21 @@ proxies:
       - http/1.1
     skip-cert-verify: false
   - name: "mxga"
-    type: ss
+    输入: ss
     server: 159.54.158.147
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: "mxgb"
-    type: ss
+    输入: ss
     server: 160.34.212.39
     port: 12123
     cipher: aes-256-gcm
     password: "gmbzhhc163"
     udp: true
   - name: "uka"
-    type: ss
+    输入: ss
     server: 132.145.61.146
     port: 12123
     cipher: aes-256-gcm
@@ -183,7 +183,7 @@ proxies:
 
 proxy-groups:
   - name: 节点选择
-    type: select
+    输入: select
     proxies:
       - sga
       - sgb
@@ -201,31 +201,75 @@ proxy-groups:
       - DIRECT
 
   - name: 国外服务
-    type: select
+    输入: select
     proxies:
-      - 节点选择
-      - 自己的节点名称 # 改成你自己的节点名称，可自定义
+      - sga
+      - sgb
+      - sgarm
+      - hcca
+      - hccb
+      - ccarm
+      - jparm
+      - bwg
+      - dmit
+      - mxga
+      - mxgb
+      - uka
+      - ukb
       - DIRECT
 
   - name: AI服务
-    type: select
+    输入: select
     proxies:
-      - 节点选择
-      - 自己的节点名称 # 改成你自己的节点名称，可自定义
+      - sga
+      - sgb
+      - sgarm
+      - hcca
+      - hccb
+      - ccarm
+      - jparm
+      - bwg
+      - dmit
+      - mxga
+      - mxgb
+      - uka
+      - ukb
       - DIRECT
 
   - name: 流媒体
     输入: select
     proxies:
-      - 节点选择
-      - 自己的节点名称 # 改成你自己的节点名称，可自定义
+      - sga
+      - sgb
+      - sgarm
+      - hcca
+      - hccb
+      - ccarm
+      - jparm
+      - bwg
+      - dmit
+      - mxga
+      - mxgb
+      - uka
+      - ukb
       - DIRECT
 
   - name: 漏网之鱼
     输入: select
     proxies:
-      - 节点选择
-      - 自己的节点名称 # 改成你自己的节点名称，可自定义
+      - sga
+      - sgb
+      - sgarm
+      - hcca
+      - hccb
+      - ccarm
+      - jparm
+      - bwg
+      - dmit
+      - mxga
+      - mxgb
+      - uka
+      - ukb
       - DIRECT
 
 rules:
