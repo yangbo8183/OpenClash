@@ -77,27 +77,127 @@ dns:
   direct-nameserver-follow-policy: true
 
 proxies:
-  - name: "自己的节点名称" # 改成你自己的节点名称，可自定义
-    type: vless
-    server: YOUR_VPS_IP_OR_DOMAIN # 必改：改成你自己的 VPS IP 或域名
-    port: 443 # 必改：改成你自己的端口
-    uuid: "YOUR_UUID_HERE" # 必改：改成你自己的 UUID
+  - name: "hcca"
+    type: ss
+    server: 152.69.230.173
+    port: 12123
+    cipher: aes-256-gcm
+    password: "gmbzhhc163"
     udp: true
-    flow: xtls-rprx-vision
-    packet-encoding: xudp
-    tls: true
-    servername: "YOUR_SNI_DOMAIN" # 必改：改成你自己节点使用的 SNI / 伪装域名
-    client-fingerprint: chrome
-    reality-opts:
-      public-key: "YOUR_REALITY_PUBLIC_KEY" # 必改：改成你自己的 Reality 公钥
-      short-id: "YOUR_SHORT_ID" # 必改：改成你自己的 short-id
-    network: tcp
+  - name: "hccb"
+    type: ss
+    server: 152.67.199.69
+    port: 12123
+    cipher: aes-256-gcm
+    password: "gmbzhhc163"
+    udp: true
+  - name: "ccarm"
+    type: ss
+    server: 146.56.96.88
+    port: 12123
+    cipher: aes-256-gcm
+    password: "gmbzhhc163"
+    udp: true
+  - name: sga
+    type: trojan
+    server: 138.2.92.207
+    port: 443
+    password: hcj9180
+    udp: true
+    sni: sga.mdfg.cf
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+  - name: sgb
+    type: hysteria2
+    server: sgb.chinatw.eu.org
+    port: "444"
+    ports: 20000-50000
+    password: zjs9180.zmz203307
+    sni: sgb.chinatw.eu.org
+  - name: "sgarm"
+    type: ss
+    server: 134.185.88.159
+    port: 12123
+    cipher: aes-256-gcm
+    password: "gmbzhhc163"
+    udp: true
+  - name: "jparm"
+    type: ss
+    server: 131.186.44.69
+    port: 12123
+    cipher: aes-256-gcm
+    password: "gmbzhhc163"
+    udp: true
+  - name: "dmit"
+    type: trojan
+    server: dmit.mdfg2288.gq
+    port: 443
+    password: hcj9180
+    udp: true
+    sni: dmit.mdfg2288.gq
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+  - name: "bwg"
+    type: trojan
+    server: bwg.mdfg2288.gq
+    port: 443
+    password: hcj9180
+    udp: true
+    sni: bwg.mdfg2288.gq
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+  - name: "mxga"
+    type: ss
+    server: 159.54.158.147
+    port: 12123
+    cipher: aes-256-gcm
+    password: "gmbzhhc163"
+    udp: true
+  - name: "mxgb"
+    type: ss
+    server: 160.34.212.39
+    port: 12123
+    cipher: aes-256-gcm
+    password: "gmbzhhc163"
+    udp: true
+  - name: "uka"
+    type: ss
+    server: 132.145.61.146
+    port: 12123
+    cipher: aes-256-gcm
+    password: "gmbzhhc163"
+    udp: true
+  - name: "ukb"
+    输入: ss
+    server: 141.147.118.245
+    port: 12123
+    cipher: aes-256-gcm
+    password: "gmbzhhc163"
+    udp: true
 
 proxy-groups:
   - name: 节点选择
     type: select
     proxies:
-      - 自己的节点名称 # 改成你自己的节点名称，可自定义
+      - sga
+      - sgb
+      - sgarm
+      - hcca
+      - hccb
+      - ccarm
+      - jparm
+      - bwg
+      - dmit
+      - mxga
+      - mxgb
+      - uka
+      - ukb
       - DIRECT
 
   - name: 国外服务
@@ -115,14 +215,14 @@ proxy-groups:
       - DIRECT
 
   - name: 流媒体
-    type: select
+    输入: select
     proxies:
       - 节点选择
       - 自己的节点名称 # 改成你自己的节点名称，可自定义
       - DIRECT
 
   - name: 漏网之鱼
-    type: select
+    输入: select
     proxies:
       - 节点选择
       - 自己的节点名称 # 改成你自己的节点名称，可自定义
