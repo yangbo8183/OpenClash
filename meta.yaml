@@ -184,7 +184,7 @@ pproxies:
 
 proxy-groups:
   - name: 节点选择
-    输入: select
+    type: select
     proxies:
       - sga
       - sgb
@@ -202,7 +202,7 @@ proxy-groups:
       - DIRECT
 
   - name: 国外服务
-    输入: select
+    type: select
     proxies:
       - sga
       - sgb
@@ -220,7 +220,7 @@ proxy-groups:
       - DIRECT
 
   - name: AI服务
-    输入: select
+    type: select
     proxies:
       - sga
       - sgb
@@ -238,7 +238,7 @@ proxy-groups:
       - DIRECT
 
   - name: 流媒体
-    输入: select
+    type: select
     proxies:
       - sga
       - sgb
