@@ -76,7 +76,7 @@ dns:
 
   direct-nameserver-follow-policy: true
 
-pproxies:
+proxies:
   - name: "hcca"
     type: ss
     server: 152.69.230.173
@@ -181,7 +181,6 @@ pproxies:
     password: "gmbzhhc163"
     udp: true
 
-
 proxy-groups:
   - name: 节点选择
     type: select
@@ -198,12 +197,13 @@ proxy-groups:
       - mxga
       - mxgb
       - uka
-      - ukb
+      - ukb 
       - DIRECT
 
   - name: 国外服务
     type: select
     proxies:
+      - 节点选择
       - sga
       - sgb
       - sgarm
@@ -222,6 +222,7 @@ proxy-groups:
   - name: AI服务
     type: select
     proxies:
+      - 节点选择
       - sga
       - sgb
       - sgarm
@@ -240,6 +241,7 @@ proxy-groups:
   - name: 流媒体
     type: select
     proxies:
+      - 节点选择
       - sga
       - sgb
       - sgarm
@@ -258,6 +260,7 @@ proxy-groups:
   - name: 漏网之鱼
     type: select
     proxies:
+      - 节点选择
       - sga
       - sgb
       - sgarm
